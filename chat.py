@@ -27,7 +27,7 @@ st.set_page_config(page_title="Conversational Q&A Chatbot")
 st.header("Let's Chat")
 
 # Initialize the chat model
-chat_model = ChatOpenAI()
+chatmodel = ChatOpenAI()
 
 # Initialize session state for storing messages
 if 'flow_messages' not in st.session_state:
@@ -42,6 +42,6 @@ user_input = st.text_input("Write here:", key="input")
 # Handle button click and display response
 submit = st.button("What do you say?")
 if submit and user_input:
-    response = get_openai_response(user_input, chat_model)
+    response = get_openai_response(user_input, chatmodel)
     st.subheader("Hmmm... \n")
     st.write(response)
