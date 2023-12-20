@@ -2,6 +2,7 @@
 Streamlit UI for a Conversational Q&A Chatbot using LangChain and OpenAI.
 """
 
+# Ensure that 'streamlit', 'langchain.schema', and 'langchain.chat_models' are installed in your environment
 import streamlit as st
 from langchain.schema import HumanMessage, AIMessage, SystemMessage
 from langchain.chat_models import ChatOpenAI
@@ -32,7 +33,8 @@ chat_model = ChatOpenAI()
 # Initialize session state for storing messages
 if 'flow_messages' not in st.session_state:
     st.session_state['flow_messages'] = [
-        SystemMessage(content="You're a witty, sarcastic AI assistant who understands human behavior.")
+        SystemMessage(content=("You're a witty, sarcastic AI assistant who understands "
+                               "human behavior."))
     ]
 
 # User input
