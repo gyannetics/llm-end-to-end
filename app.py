@@ -1,29 +1,41 @@
-# Q & A Chatbot demo
-from langchain.llms import OpenAI
+"""
+Streamlit UI for a Q&A Chatbot using LangChain and OpenAI.
+"""
+
+import os
 from dotenv import load_dotenv
 import streamlit as st
-import os
+from langchain.llms import OpenAI
+
+# Load environment variables
 load_dotenv()
 
-# Function to load OpenAI model and get response
-
-
 def get_openai_response(question):
+    """
+    Generates a response from OpenAI to the given question.
+
+    Args:
+        question (str): The question asked by the user.
+
+    Returns:
+        str: The AI-generated answer.
+    """
     llm = OpenAI(model_name='text-davinci-003',
                  temperature=0.6,
                  openai_api_key=os.getenv('OPENAI_API_KEY'))
     response = llm(question)
     return response
 
-
+# Streamlit UI setup
 st.set_page_config(page_title='Q&A Demo')
 st.header("Simple Question and Answer App")
 
-input = st.text_input("Write here:", key="input")
-response = get_openai_response(input)
+# User input
+user_input = st.text_input("Write here:", key="input")
 
+# Handle button click and display response
 submit = st.button("What did you say?")
-
-if submit:
+if submit and user_input:
+    response = get_openai_response(user_input)
     st.subheader("Hmmm... \n")
     st.write(response)
