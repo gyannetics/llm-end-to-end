@@ -7,8 +7,9 @@ load_dotenv()
 
 # Function to load OpenAI model and get response
 
+
 def get_openai_response(question):
-    llm = OpenAI(model_name= 'text-davinci-003',
+    llm = OpenAI(model_name='text-davinci-003',
                  temperature=0.6,
                  openai_api_key=os.getenv('OPENAI_API_KEY'))
     response = llm(question)
