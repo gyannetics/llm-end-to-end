@@ -1,0 +1,6 @@
+langchain
+openai
+# ipykernel
+huggingface_hub
+python-dotenv
+streamlit
