@@ -2,7 +2,6 @@
 Streamlit UI for a Conversational Q&A Chatbot using LangChain and OpenAI.
 """
 
-# Ensure that 'streamlit', 'langchain.schema', and 'langchain.chat_models' are installed in your environment
 import streamlit as st
 from langchain.schema import HumanMessage, AIMessage, SystemMessage
 from langchain.chat_models import ChatOpenAI
