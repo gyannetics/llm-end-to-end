@@ -2,7 +2,6 @@
 Streamlit UI for a Q&A Chatbot using LangChain and OpenAI.
 """
 
-# Ensure that 'dotenv', 'streamlit', and 'langchain.llms' are installed in your environment
 import os
 from dotenv import load_dotenv
 import streamlit as st
@@ -22,11 +21,10 @@ def get_openai_response(question):
     Returns:
         str: The AI-generated answer.
     """
-    llm = OpenAI(model_name='text-davinci-003',
-                 temperature=0.6,
-                 openai_api_key=os.getenv('OPENAI_API_KEY'))
-    # Renamed variable to avoid outer scope name conflict
+    llm = OpenAI(openai_api_key=os.getenv('OPENAI_API_KEY'), model_name='text-davinci-003')
+
     openai_response = llm(question)
+
     return openai_response
 
 
